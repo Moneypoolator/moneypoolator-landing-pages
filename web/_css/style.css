@@ -1,0 +1,52 @@
+/*------------------------general------------------------*/
+html, body {min-width: 940px;}
+body {font: 62.5% Verdana, sans-serif; color: #2e1f0c; background: #7ba8a5 url(../_img/bg_body.jpg) no-repeat center top; margin: 0; padding: 0; }
+a {color: #2e1f0c; text-decoration: underline; cursor: pointer;}
+html, div, span, object, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, form, table, caption, tbody, tfoot, thead, fieldset, label, legend, article, aside, canvas, details, figcaption, figure, header, hgroup, nav, menu, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; outline: 0; vertical-align: baseline; background: transparent;} 
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}            
+ul, ol {padding: 10px 0 10px 20px; margin: 0;}
+table {border-collapse: collapse; border-spacing: 0;}
+td {vertical-align: top;}
+th {font-weight: normal;}
+p {margin: 0; padding: 10px 0;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, time {display: block;}
+input, select {vertical-align: middle;}
+.clear {height: 0; font-size: 0; line-height: 0; clear: both;}
+textarea {width: 450px; height: 250px;}
+ul {list-style: none; margin: 0; padding: 0;}
+:focus {outline: none;}
+header, #content, footer {width: 940px; margin: 0 auto; font-size: 1.2em;}
+
+/*-----------------------titles-------------------------*/
+h1, h2, h3, h4, h5, h6 {margin: 0; padding: 5px 0;}
+h1 {position: absolute; top: -35000px; z-index: 255;}
+h2 {font: bold 2.2em Verdana; text-transform: uppercase;}
+h3 {font: bold 1.8em Verdana;}
+h4 {font: normal 1.3em Verdana;}
+h5 {font: normal 1.2em Verdana;}
+h6 {font: normal 1.1em Verdana;}
+
+/*----------------------header-------------------------*/
+
+header {text-align: center; padding: 30px 0 10px 0; color: #fff;}
+#logo {width: 237px; height: 70px; margin: 0 auto; margin-bottom: 25px;}
+#opening {height: 33px; background: url(../_img/bg_opening.png) no-repeat center top; margin-bottom: 25px;}
+#header-info {text-shadow: 2px 2px 0 #5f8e8b; width: 560px; margin: 0 auto; font-size: 1.3em;}
+
+#content {background: url(../_img/bg_content.jpg) no-repeat right bottom;}
+#main {font-size: 1.2em; background: #f5f4f2; -webkit-border-radius: 8px; -moz-border-radius: 8px; -khtml-border-radius: 8px; border-radius: 8px; box-shadow: 0 10px 6px -6px rgba(103,136,132,0.9); -moz-box-shadow: 0 10px 6px -6px rgba(103,136,132,0.9); -webkit-box-shadow: 0 10px 6px -6px rgba(103,136,132,0.9); -khtml-box-shadow: 0 10px 6px -6px rgba(103,136,132,0.9); width: 568px; padding: 26px; margin: 0 auto;}
+form {background: url(../_img/bg_form.png) repeat-x left 16px; padding: 36px 0 0;}
+form input {font-family: Verdana; -webkit-border-radius: 6px; -moz-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;}
+form input.email {height: 45px; line-height: 45px; border: solid 2px #aca7a1; color: #aca7a1; padding: 0 22px; width: 239px; margin-right: 20px;}
+form input.button {height: 49px; line-height: 49px; border: none; color: #2e1f0c; cursor: pointer; font-weight: bold; width: 250px; padding: 0; background: #fad630; text-align: center; text-transform: uppercase; cursor: pointer; box-shadow: 2px 2px 0 0 rgba(179,196,192,0.9); -moz-box-shadow: 2px 2px 0 0 rgba(179,196,192,0.9); -webkit-box-shadow: 2px 2px 0 0 rgba(179,196,192,0.9); -khtml-box-shadow: 2px 2px 0 0 rgba(179,196,192,0.9);}
+form input.button:hover {background: #e9ba00;}
+#required, #mce-responses {position: relative;}
+div.mce_inline_error, div #mce-success-response, div#mce-error-response {position: absolute; z-index: 2; width: 283px; color: #d25d79; font: 0.8em Arial; left: 5px; top: 68px; background: #f5f4f2;}
+div.mce_inline_error {z-index: 3; min-height: 30px;}
+div.counter {margin: 10px 0 10px 310px; min-height: 26px;}
+div.counter span {font-size: 1.4em;}
+div#nump {display: block !important;}
+p.required {padding: 0;}
+
+/*----------------------footer-------------------------*/
+footer {text-align: center; padding: 20px 0 30px 0; color: #617e78;}
