@@ -1,0 +1,39 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+                    <div id="mc_embed_signup">
+                        <form novalidate action="subscribe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
+                            <p><strong>Мы почти готовы к запуску. Оставьте нам свой e-mail и мы оповестим вас о дате открытия.</strong></p>
+                            <div id="required">
+
+                                <c:choose>
+                                    <c:when test="${!empty sessionScope.currentAdress}">
+                                        <input class="required email" id="mce-EMAIL" type="email" name="email" value="<c:out value="${sessionScope.currentAdress}"/>" />
+                                        <c:remove var="currentAdress" scope="session" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        <input class="required email" id="mce-EMAIL" type="email" name="email" value="" placeholder="Ваш адрес E-mail" />
+                                    </c:otherwise>
+                                </c:choose>
+
+                                <input class="button" type="submit" name="subscribe" id="mc-embedded-subscribe" value="Подписаться" onclick="_gaq.push(['_trackEvent', 'submit', 'clicked']);"/>
+
+                                <div id="nump" class="counter">
+                                    Запуска уже ждут: <span><c:out value="${requestScope.subscribersCount}" default="4"/></span> <c:out value="${requestScope.subscribersSuffix}" default="человека"/>
+                                </div>
+
+                                <c:choose>
+                                    <c:when test="${!empty sessionScope.mailErrorResponse}">
+                                        <div class="response" id="mce-error-response" style="">${sessionScope.mailErrorResponse}</div>
+                                        <c:remove var="mailErrorResponse" scope="session" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="response" id="mce-error-response" style="display:none"></div>
+                                    </c:otherwise>
+                                </c:choose>
+
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </form>
+                    </div>
