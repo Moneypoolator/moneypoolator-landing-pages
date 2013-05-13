@@ -60,6 +60,7 @@
                     <div id="mc_embed_signup">
                         <form novalidate action="subscribe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
                             <p><strong>Мы почти готовы к запуску. Оставьте нам свой e-mail и мы оповестим вас о дате открытия.</strong></p>
+                            <p class="required"><input type="hidden" name="goback" value="/index" /></p>
                             <div id="required">
 
                                 <c:choose>

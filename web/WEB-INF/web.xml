@@ -1,32 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <filter>
+        <filter-name>SubscribersCounterFilter</filter-name>
+        <filter-class>LandingPage.SubscribersCounterFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SubscribersCounterFilter</filter-name>
+        <servlet-name>FirstLandingPage</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>SubscribersCounterFilter</filter-name>
+        <servlet-name>MainPage</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
     <servlet>
         <servlet-name>SubscriberServlet</servlet-name>
         <servlet-class>LandingPage.SubscriberServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>StartServlet</servlet-name>
-        <servlet-class>LandingPage.StartServlet</servlet-class>
     </servlet>
     <servlet>
         <description>Main page view</description>
         <servlet-name>MainPage</servlet-name>
         <jsp-file>/index.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>FirstLandingPage</servlet-name>
+        <jsp-file>/landing1.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Error404</servlet-name>
+        <jsp-file>/WEB-INF/404.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SubscriberServlet</servlet-name>
         <url-pattern>/subscribe</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>MainPage</servlet-name>
-        <url-pattern>/index.jsp</url-pattern>
+        <servlet-name>FirstLandingPage</servlet-name>
+        <url-pattern>/landing1</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>StartServlet</servlet-name>
-        <url-pattern>*.jsp</url-pattern>
+        <servlet-name>Error404</servlet-name>
+        <url-pattern>/error404</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MainPage</servlet-name>
         <url-pattern>/index</url-pattern>
-        <url-pattern>/index.html</url-pattern>
-        <url-pattern>/index.htm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -48,7 +67,7 @@
     </welcome-file-list>
     <error-page>
         <error-code>404</error-code>
-        <location>/WEB-INF/404.jsp</location>
+        <location>/error404</location>
     </error-page>
     <resource-ref>
         <res-ref-name>jdbc/LPDB</res-ref-name>

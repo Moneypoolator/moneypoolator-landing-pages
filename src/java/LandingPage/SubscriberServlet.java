@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package LandingPage;
 
 import java.text.DateFormat;
@@ -151,7 +147,12 @@ public class SubscriberServlet extends HttpServlet {
         } // if
 
         session.setAttribute("mailErrorResponse", email_error_message);
-        response.sendRedirect(response.encodeRedirectURL(contextPath + "/index"));
+        
+        String goback = request.getParameter("goback");
+        if (goback == null) {
+            goback = "/index";
+        }
+        response.sendRedirect(response.encodeRedirectURL(contextPath + goback));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
