@@ -73,7 +73,7 @@
                                     </c:otherwise>
                                 </c:choose>
 
-                                <input class="button" type="submit" name="subscribe" id="mc-embedded-subscribe" value="Подписаться" onclick="_gaq.push(['_trackEvent', 'submit', 'landing1-clicked']);"/>
+                                <input class="button" type="submit" name="subscribe" id="mc-embedded-subscribe" value="Подписаться" title="Прислать мне сообщение о запуске Moneypoolator" onclick="_gaq.push(['_trackEvent', 'submit', 'landing1-clicked']);"/>
 
                                 <div id="nump" class="counter">
                                     Запуска уже ждут: <span><c:out value="${requestScope.subscribersCount}" default="4"/></span> <c:out value="${requestScope.subscribersSuffix}" default="человека"/>

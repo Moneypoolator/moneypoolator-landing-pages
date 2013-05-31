@@ -57,7 +57,7 @@ p.required {padding: 0;}
 #use {position: relative; background: #e8e5e0 url(../_img/bg_use.png) no-repeat right 24px; min-height: 350px; color: #696969; font: normal 0.9em  Arial; width: 568px; margin-left: -26px; padding: 21px 26px;}
 #use ul {position: relative; padding-top: 10px;}
 #use ul p {padding: 5px 0;}
-#use ul p, #use ul ol li {line-height: 96%;}
+#use ul p, #use ul ol li {/*line-height: 96%;*/}
 #use ul p.emphasized, #use ol li span {color: #000; font-weight: bold;}
 #use ul div {padding: 0 0 0 23px;}
 #use ul li#first {width: 167px; float: left; padding-right: 10px;}
@@ -65,7 +65,7 @@ p.required {padding: 0;}
 #use ul li#second {width: 200px; margin-left: 177px; background: url(../_img/bg_second.png) no-repeat right 8px; padding-right: 65px; min-height: 80px;}
 #use ul li#third {position: relative; background: url(../_img/bg_third.png) no-repeat right 58px; padding-right: 29px;}
 #use ul li#third, #use ul li#fourth {width: 290px; clear: left;}
-#use ul li#fourth {position: relative; margin-left: -11px; background: url(../_img/bg_fourth.png) no-repeat left 38px; padding-left: 11px;}
+#use ul li#fourth {position: relative; margin-left: -11px; background: url(../_img/bg_fourth.png) no-repeat left 60px; padding-left: 11px;}
 #use ul li#fifth {color: #d25d7a; font: bold 1.1em Verdana; position: relative; margin-left: -7px;}
 #use ul li#fifth p {padding-left: 194px;}
 #use #inverstirovanie {position: absolute; width: 92px; padding: 0 10px 0 0; left: 330px; top: 13px; color: #648e89; font-size: 0.9em;}
