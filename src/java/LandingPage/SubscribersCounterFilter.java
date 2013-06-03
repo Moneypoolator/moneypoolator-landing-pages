@@ -121,7 +121,7 @@ public class SubscribersCounterFilter implements Filter {
             }
         } // try
         
-        request.setAttribute("subscribersCount", subscribersCount);
+        request.setAttribute("subscribersCount", subscribersCount + 100);
         request.setAttribute("subscribersSuffix", subscribersSuffix);
         
     }

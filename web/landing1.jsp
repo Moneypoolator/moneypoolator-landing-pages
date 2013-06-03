@@ -41,7 +41,7 @@
         <![endif]-->
     </head>
     <body>
-        <h1>Moneypoolator &mdash; Рынок прогнозов</h1>
+        <h1>Moneypoolator &mdash; Рынок прогнозов, рынок предсказаний</h1>
         <div id="container">
             <header>
                 <div id="logo"><img src="<c:url value="/_img/logo.png"/>" alt="Moneypoolator - Рынок прогнозов" /></div>
