@@ -50,9 +50,11 @@ header {padding: 15px 0 0; height: 105px; overflow: hidden;}
 form {position: relative;}
 input {height: 42px; line-height: 42px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; border-radius: 4px;}
 input.email {background: #fff; color: #231e22; border: solid 1px #969799; width: 540px; padding: 0 28px; font-size: 1.6em;}
+input.error-email {background: #fff; color: #231e22; border: solid 1px #d25d79; width: 540px; padding: 0 28px; font-size: 1.6em;}
 input.button {width: 142px; margin-left: 87px; border: none; background: none; cursor: pointer;}
-#counter {position: absolute; z-index: 1; left: 670px; top: 78px; width: 170px; text-align: center; font-size: 0.8em;text-transform: uppercase; color: #242021;}
+#counter {position: absolute; z-index: 1; left: 670px; top: 58px; width: 170px; text-align: center; font-size: 0.8em;text-transform: uppercase; color: #242021;}
 #counter span {text-transform: none; font-size: 3.0em; display: block;}
+div#error-response {position: absolute; z-index: 2; width: 540px; color: #d25d79; left: 5px; top: 55px;}
 
 #information {padding: 52px 0;}
 

@@ -21,7 +21,7 @@
     <servlet>
         <description>Main page view</description>
         <servlet-name>MainPage</servlet-name>
-        <jsp-file>/index.jsp</jsp-file>
+        <jsp-file>/index2.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>FirstLandingPage</servlet-name>
