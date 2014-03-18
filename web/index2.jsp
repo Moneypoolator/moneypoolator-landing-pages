@@ -53,7 +53,9 @@
                     <div id="scheme"><img src="<c:url value="/_img2/scheme.png"/>" alt="Cхема работы рынка предсказаний" /></div>
                     <p>Мы почти готовы к запуску. <br />Оставьте нам свой e-mail и мы оповестим вас об открытии!</p>
                 </div>
-                <form novalidate action="subscribe" method="post">
+                <form novalidate action="subscribe" method="post" onsubmit="_gaq.push(['_trackEvent', 'submit', 'clicked']);
+                yaCounter21951481.reachGoal('MAIN_SUBMIT');
+                return true;">
                     <div id="required">
                         <input type="hidden" name="goback" value="/index" />
 
@@ -74,9 +76,7 @@
                             </c:otherwise>
                         </c:choose>
 
-                        <input class="button" type="submit" name="" value="" title="Прислать мне сообщение о запуске Moneypoolator" onclick="_gaq.push(['_trackEvent', 'submit', 'clicked']);
-                yaCounter21951481.reachGoal('MAIN_SUBMIT');
-                return true;" />
+                        <input class="button" type="submit" name="" value="" title="Прислать мне сообщение о запуске Moneypoolator" />
                     </div>
                     <div id="counter">
                         <span><c:out value="${requestScope.subscribersCount}" default="4"/></span> <c:out value="${requestScope.subscribersSuffix}" default="человека"/> уже ждут запуска
@@ -137,7 +137,7 @@
         </script>
         <noscript><div><img src="//mc.yandex.ru/watch/21951481" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
         <!-- /Yandex.Metrika counter -->   
-        
+
         <script type="text/javascript" async="true" defer="defer">
             yaCounter21951481.reachGoal('MAIN_SUBMIT');
         </script>

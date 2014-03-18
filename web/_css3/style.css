@@ -1,0 +1,78 @@
+/*------------------------general------------------------*/
+body {font-family: Verdana, Tahoma, sans-serif; font-size: 62.5%; margin: 0; padding: 0; color: #fefefe; background: #3a3735;}
+a {color: #21b573; text-decoration: none; cursor: pointer;}
+:focus {outline: none;}
+html, div, span, object, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, form, table, caption, tbody, tfoot, thead, fieldset, label, legend, article, aside, canvas, details, figcaption, figure, header, hgroup, nav, menu, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; outline: 0; vertical-align: baseline; background: transparent;} 
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}            
+table {border-collapse: collapse;}
+td {vertical-align: top;}
+p {margin: 0; padding: 10px 0;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, time {display: block;}
+input, select {vertical-align: middle; font-family: Verdana; font-size: 0.9em;}
+input {-webkit-border-radius: 6px; -moz-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;}
+.clear {clear: both; height: 0; font-size: 0; line-height: 0;}
+textarea {width: 450px; height: 250px; font-family: Verdana;}
+header, #thesis1, #content, #content2, #thesis2, footer {width: 1180px; margin: 0 auto; font-size: 1.6em;}
+ul, ol {list-style: none; margin: 0; padding: 0;}
+address {font-style: normal; font-size: 0.8em;}
+
+/*-----------------------titles-------------------------*/
+h1, h2, h3, h4, h5, h6 {margin: 0; padding: 5px 0;}
+h1 {position: absolute; top: -35000px; z-index: 255;}
+h2 {font-size: 1.7em;}
+#header-right h2 {padding: 2px 130px 10px 0; text-transform: uppercase; line-height: 1.333;}
+h3 {font-size: 1.2em;}
+#content ul h3 {background: url(../_img3/bg_h3.png) no-repeat left bottom; color: #3e3936; line-height: 120%; padding: 14px 0 23px 0;}
+h4, h5 {font-size: 1.0em;}
+#content2 table td h5 {padding-left: 20px; width: 260px;}
+h6 {font-size: 0.9em;}
+
+/*----------------------header-------------------------*/
+#container-header {background: #3d3937 url(../_img3/bg_header.png) no-repeat center bottom; color: #fff;}
+#container-header2 {background: #84c1b1 url(../_img3/bg_header.png) no-repeat center bottom; color: #000;}
+header {padding: 26px 0 44px 0; min-height: 536px;}
+#logo {float: left; width: 560px;}
+#header-right {margin: 0 20px 0 592px;}
+.information {padding: 50px 0 30px 0;}
+.information p {padding: 0; line-height: 1.6;}
+p.confidentiality {color: #7b716e; font-size: 0.8em; width: 290px;}
+p.email-error-message {color: #d25d79; font-size: 0.8em; width: 290px;}
+#container-header2 p.confidentiality {color: #4b5c5b; font-size: 0.8em; width: 290px; color: #4b5c5b;}
+input.text {color: #a7a1a0; width: 228px; border: solid 2px #7e7977; line-height: 56px; height: 56px; padding: 0 28px; font-size: 1.0em;}
+#container-header2 input.text {border: solid 2px #afe6d8;}
+input.submit {color: #000; font-weight: bold; text-transform: uppercase; border: none; line-height: 60px; height: 60px; padding: 0 22px; background: #f2d833; margin-left: 20px; cursor: pointer;}
+
+/*----------------------thesis-------------------------*/
+#container-thesis1 {background: #f2d833; color: #262424;}
+#thesis1, #thesis2, #thesis3 {text-align: center; font: bold 2.3em Verdana; line-height: 1.333; width: 920px; padding: 30px 130px;}
+#thesis3 {font-size: 1.5em;}
+#container-thesis2 {background: #393634;}
+
+/*----------------------content-------------------------*/
+#container {background: #fff; color: #262424;}
+.column-left {float: left; width: 560px; padding: 0 16px;}
+#content ul {padding: 70px 60px 0 0;}
+#content ul li {padding: 0 0 66px 188px; min-height: 170px;}
+#content ul li.earnings {background: url(../_img3/earnings.png) no-repeat left top;}
+#content ul li.plainness {background: url(../_img3/plainness.png) no-repeat left top;}
+#content ul li.awareness {background: url(../_img3/awareness.png) no-repeat left top;}
+#content ul li.markets {background: url(../_img3/markets.png) no-repeat left top;}
+#content ul li.urgency {background: url(../_img3/urgency.png) no-repeat left top;}
+#content ul li.perspective {background: url(../_img3/perspective.png) no-repeat left top;}
+#content ul li.event {background: url(../_img3/event.png) no-repeat left top;}
+#content ul li.knowledge {background: url(../_img3/knowledge.png) no-repeat left top;}
+
+.column-right {margin: 0 0 0 592px; padding: 0 16px;}
+
+/*----------------------content2-------------------------*/
+#container2 {background: #f3f0e9; color: #262424;}
+#content2 {padding: 30px 0 60px 0;}
+#content2 table {width: 1180px;}
+#content2 table td {background: #fff; border-top: solid 1px #f3f0e9; border-bottom: solid 1px #f3f0e9; padding: 20px 0;}
+#content2 table th {padding: 0 0 20px 0; width: 180px; color: #77706e; vertical-align: bottom; text-align: left; font: normal 0.9em Verdana;}
+
+/*----------------------footer-------------------------*/
+#container-footer {color: #3e3936; background: #f3f0e9; margin-bottom: 6px;}
+footer {padding: 30px 0;}
+footer form {width: 610px; margin: 0 auto;}
+footer form input.text {border: solid 2px #c7c2be;}

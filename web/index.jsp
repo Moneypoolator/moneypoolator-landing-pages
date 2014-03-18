@@ -106,7 +106,7 @@
                     </div>
 
                     <div id="mc_embed_signup">
-                        <form novalidate action="subscribe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
+                        <form novalidate action="subscribe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" onsubmit="_gaq.push(['_trackEvent', 'submit', 'clicked']);yaCounter21951481.reachGoal('MAIN_SUBMIT'); return true;">
                             <p><strong>Мы почти готовы к запуску. Оставьте нам свой e-mail и мы оповестим вас о дате открытия.</strong></p>
                             <p class="required"><input type="hidden" name="goback" value="/index" /></p>
                             <div id="required">
@@ -121,7 +121,7 @@
                                     </c:otherwise>
                                 </c:choose>
 
-                                <input class="button" type="submit" name="subscribe" id="mc-embedded-subscribe" value="Подписаться" title="Прислать мне сообщение о запуске Moneypoolator" onclick="_gaq.push(['_trackEvent', 'submit', 'clicked']);yaCounter21951481.reachGoal('MAIN_SUBMIT'); return true;"/>
+                                <input class="button" type="submit" name="subscribe" id="mc-embedded-subscribe" value="Подписаться" title="Прислать мне сообщение о запуске Moneypoolator" />
 
                                 <div id="nump" class="counter">
                                     Запуска уже ждут: <span><c:out value="${requestScope.subscribersCount}" default="4"/></span> <c:out value="${requestScope.subscribersSuffix}" default="человека"/>

@@ -58,7 +58,7 @@
                     <h3>Что такое Moneypoolator?</h3>
                     <p>Это рынок предсказаний. Здесь вы сможете выбрать конкретный вариант будущего &mdash; например тот, в котором Бернанке уйдет в отставку в январе 2014 года, &mdash; и заработать на этом. А кроме того, на Moneypoolator можно будет узнать, произойдет интересующее вас событие или нет.</p>
                     <div id="mc_embed_signup">
-                        <form novalidate action="subscribe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
+                        <form novalidate action="subscribe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" onsubmit="_gaq.push(['_trackEvent', 'submit', 'landing1-clicked']);yaCounter21951481.reachGoal('LANDING1_SUBMIT'); return true;">
                             <p><strong>Мы почти готовы к запуску. Оставьте нам свой e-mail и мы оповестим вас о дате открытия.</strong></p>
                             <p class="required"><input type="hidden" name="goback" value="/landing1" /></p>
                             <div id="required">
@@ -73,7 +73,7 @@
                                     </c:otherwise>
                                 </c:choose>
 
-                                <input class="button" type="submit" name="subscribe" id="mc-embedded-subscribe" value="Подписаться" title="Прислать мне сообщение о запуске Moneypoolator" onclick="_gaq.push(['_trackEvent', 'submit', 'landing1-clicked']);yaCounter21951481.reachGoal('LANDING1_SUBMIT'); return true;"/>
+                                <input class="button" type="submit" name="subscribe" id="mc-embedded-subscribe" value="Подписаться" title="Прислать мне сообщение о запуске Moneypoolator" />
 
                                 <div id="nump" class="counter">
                                     Запуска уже ждут: <span><c:out value="${requestScope.subscribersCount}" default="4"/></span> <c:out value="${requestScope.subscribersSuffix}" default="человека"/>

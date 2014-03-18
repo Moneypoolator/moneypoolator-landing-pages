@@ -31,6 +31,10 @@
         <servlet-name>Error404</servlet-name>
         <jsp-file>/WEB-INF/404.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>WideLandingPage</servlet-name>
+        <jsp-file>/landing31.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SubscriberServlet</servlet-name>
         <url-pattern>/subscribe</url-pattern>
@@ -45,7 +49,12 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainPage</servlet-name>
+        <url-pattern>/mainpage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WideLandingPage</servlet-name>
         <url-pattern>/index</url-pattern>
+        <url-pattern>/landing31</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
