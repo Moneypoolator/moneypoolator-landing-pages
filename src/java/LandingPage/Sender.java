@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.nan.sendmail;
+package LandingPage;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
@@ -23,6 +23,7 @@ import javax.mail.internet.MimeMultipart;
 public class Sender {
 
     public enum TransportLayer {
+
         TLS,
         SSL
     };
@@ -63,7 +64,12 @@ public class Sender {
         }
     }
 
-    public void send(String subject, String text, String fromEmail, String toEmail) {
+    public void send(
+            String subject,
+            String text,
+            String fromEmail, String fromPersonal,
+            String toEmail,
+            String attachFileName, String attachFilePsevdonim) {
         Session session = Session.getInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -74,16 +80,13 @@ public class Sender {
         try {
             MimeMessage message = new MimeMessage(session);
 
-            //от кого
-            message.setFrom(new InternetAddress(fromEmail, "Moneypoolator support"));
-            //кому
+            message.setFrom(new InternetAddress(fromEmail, fromPersonal));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
-            //Заголовок письма
-            message.setSubject(subject);
-            
-            //Содержимое
+
+            message.setSubject(subject, "utf-8");
+
 //            message.setText(text);
-            createFileEmail(message, "invoice.pdf");
+            createFileEmail(message, text, attachFileName, attachFilePsevdonim);
 
             //Отправляем сообщение
             Transport.send(message);
@@ -94,14 +97,22 @@ public class Sender {
         }
     }
 
-    public void createFileEmail(MimeMessage message, String filename) throws MessagingException {
+    public void createFileEmail(
+            MimeMessage message,
+            String text,
+            String attachFileName, String attachFilePsevdonim) throws MessagingException, UnsupportedEncodingException {
         // Create a multipar message
         Multipart multipart = new MimeMultipart();
 
         // Create the message part 
         BodyPart messageBodyPart = new MimeBodyPart();
         // Fill the message
-        messageBodyPart.setText("This is message body");
+        //messageBodyPart.setText(text);
+        //byte[] htmlData = text.getBytes("utf-8");
+        //mailMessage.setText(MimeUtility.encodeText(mail.getMessage(), "UTF-8", "Q"));
+        messageBodyPart.setHeader("Content-Type", "text/html; charset=UTF-8");
+        messageBodyPart.setHeader("Content-Encoding", "UTF-8");
+        messageBodyPart.setContent(text, "text/html; charset=UTF-8");
 
         // Set text message part
         multipart.addBodyPart(messageBodyPart);
@@ -109,10 +120,11 @@ public class Sender {
         // Part two is attachment
         MimeBodyPart attachment = new MimeBodyPart();
 
-        DataSource source = new FileDataSource(filename);
+        DataSource source = new FileDataSource(attachFileName);
         attachment.setDataHandler(new DataHandler(source));
-        attachment.setFileName(filename);
-        
+        attachment.setFileName(attachFilePsevdonim);
+        //attachment.attachFile(attachFileName);
+
         multipart.addBodyPart(attachment);
 
         // Send the complete message parts
@@ -133,5 +145,22 @@ public class Sender {
 //        mp.addBodyPart(attachment);
 //
 //        message.setContent(mp);
+
+//        
+//        MimeBodyPart attachmentPart = new MimeBodyPart();
+//        try {
+//            DataSource ds = new ByteArrayDataSource(attachment.getBytes("UTF-8"), "application/octet-stream");
+//            attachmentPart = new MimeBodyPart();
+//            attachmentPart.setDataHandler(new DataHandler(ds));
+//        } catch (Exception e) {
+//            Logger.getLogger("Blina").log(Level.SEVERE, Misc.getStackTrace(e));
+//        }
+//
+//        attachmentPart.setFileName(fileName);
+//        multipart.addBodyPart(attachmentPart);
+//
+//        // Put parts in message
+//        msg.setContent(multipart);
+
     }
 }
