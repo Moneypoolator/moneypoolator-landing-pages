@@ -31,6 +31,14 @@
         <servlet-name>MainPage</servlet-name>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>LandingApp.AppContextListener</listener-class>
+    </listener>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>LandingApp.AppAsyncListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>SubscriberServlet</servlet-name>
         <servlet-class>LandingPage.SubscriberServlet</servlet-class>
@@ -52,6 +60,10 @@
         <servlet-name>WideLandingPage</servlet-name>
         <jsp-file>/landing31.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>AsyncEmailSenderServlet</servlet-name>
+        <servlet-class>LandingPage.AsyncEmailSenderServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SubscriberServlet</servlet-name>
         <url-pattern>/subscribe</url-pattern>
@@ -72,6 +84,10 @@
         <servlet-name>WideLandingPage</servlet-name>
         <url-pattern>/index</url-pattern>
         <url-pattern>/landing31</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AsyncEmailSenderServlet</servlet-name>
+        <url-pattern>/AsyncEmailSenderServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

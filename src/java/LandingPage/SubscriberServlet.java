@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Resource;
+import javax.ejb.EJB;
 import javax.mail.internet.AddressException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -40,6 +41,9 @@ public class SubscriberServlet extends HttpServlet {
             "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
     private static Sender tlsSender = new Sender(Sender.TransportLayer.TLS, "rul@moneypoolator.com", "e5U86J45PR_");
     private static Sender sslSender = new Sender(Sender.TransportLayer.SSL, "keeper@moneypoolator.com", "intheairtonight");
+    
+//    @EJB
+//    private EmailSessionBean emailBean;
 
     protected void sendEmail(String goback, String email) {
         String emailSubject = "This is Subject";
