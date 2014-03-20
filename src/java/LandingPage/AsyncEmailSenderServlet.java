@@ -20,7 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 1
  */
-@WebServlet(urlPatterns = "/AsyncLongRunningServlet", asyncSupported = true)
+@WebServlet(asyncSupported = true)
+//@WebServlet(urlPatterns = "/AsyncEmailSenderServlet", asyncSupported = true)
 public class AsyncEmailSenderServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -77,10 +78,14 @@ public class AsyncEmailSenderServlet extends HttpServlet {
         request.setAttribute("org.apache.catalina.ASYNC_SUPPORTED", true);
 
         String time = request.getParameter("time");
-        int secs = Integer.valueOf(time);
-        // max 10 seconds
-        if (secs > 10000) {
-            secs = 10000;
+        int secs = 1000;
+        try {
+            secs = Integer.valueOf(time);
+            // max 10 seconds
+            if (secs > 10000) {
+                secs = 10000;
+            }
+        } catch (NumberFormatException e) {
         }
 
         AsyncContext asyncCtx = request.startAsync();
@@ -112,7 +117,6 @@ public class AsyncEmailSenderServlet extends HttpServlet {
 //            throws ServletException, IOException {
 //        processRequest(request, response);
 //    }
-
     /**
      * Returns a short description of the servlet.
      *
