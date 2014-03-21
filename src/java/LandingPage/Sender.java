@@ -64,6 +64,16 @@ public class Sender {
         }
     }
 
+    public void config(
+            String subject,
+            String text,
+            String fromEmail, String fromPersonal,
+            String toEmail,
+            String attachFileName, String attachFilePsevdonim) {
+    }    
+    public void send() {
+    }
+
     public void send(
             String subject,
             String text,
