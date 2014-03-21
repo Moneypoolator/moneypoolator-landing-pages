@@ -57,8 +57,20 @@
         <jsp-file>/WEB-INF/404.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>Thanks</servlet-name>
+        <jsp-file>/WEB-INF/thanks.jsp</jsp-file>
+    </servlet>
+    <servlet>
         <servlet-name>WideLandingPage</servlet-name>
-        <jsp-file>/landing31.jsp</jsp-file>
+        <jsp-file>/WEB-INF/landing31.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>AlarmLandingPage</servlet-name>
+        <jsp-file>/WEB-INF/landing32.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>ForexLandingPage</servlet-name>
+        <jsp-file>/WEB-INF/landing33.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>AsyncEmailSenderServlet</servlet-name>
@@ -77,6 +89,10 @@
         <url-pattern>/error404</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>Thanks</servlet-name>
+        <url-pattern>/thanks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>MainPage</servlet-name>
         <url-pattern>/mainpage</url-pattern>
     </servlet-mapping>
@@ -84,6 +100,14 @@
         <servlet-name>WideLandingPage</servlet-name>
         <url-pattern>/index</url-pattern>
         <url-pattern>/landing31</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlarmLandingPage</servlet-name>
+        <url-pattern>/landing32</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForexLandingPage</servlet-name>
+        <url-pattern>/landing33</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AsyncEmailSenderServlet</servlet-name>

@@ -42,38 +42,6 @@ public class AsyncEmailSenderServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AsyncEmailSenderServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AsyncEmailSenderServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP
-     * <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-//        processRequest(request, response);
         long startTime = System.currentTimeMillis();
         System.out.println("AsyncLongRunningServlet Start::Name="
                 + Thread.currentThread().getName() + "::ID="
@@ -145,12 +113,47 @@ public class AsyncEmailSenderServlet extends HttpServlet {
 
 
         //String goback = request.getParameter("goback");
-        if (goback == null) {
-            goback = "/index";
-        }
+//        if (goback == null) {
+//            goback = "/index";
+//        }
+        
         String contextPath = request.getContextPath();
-        response.sendRedirect(response.encodeRedirectURL(contextPath + goback));
+        response.sendRedirect(response.encodeRedirectURL(contextPath + "/thanks"));
 
+        //        response.sendRedirect(response.encodeRedirectURL(contextPath + goback));
+
+//        response.setContentType("text/html;charset=UTF-8");
+//        PrintWriter out = response.getWriter();
+//        try {
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet AsyncEmailSenderServlet</title>");
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet AsyncEmailSenderServlet at " + request.getContextPath() + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
+//        } finally {
+//            out.close();
+//        }
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP
+     * <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     protected String getEmailText(String context) {
@@ -249,8 +252,7 @@ public class AsyncEmailSenderServlet extends HttpServlet {
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
         super.service(req, res); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
     /**
      * Returns a short description of the servlet.
      *
