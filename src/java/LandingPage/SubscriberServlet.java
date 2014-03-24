@@ -36,33 +36,11 @@ public class SubscriberServlet extends HttpServlet {
 
     @Resource(name = "jdbc/LPDB")
     private DataSource jdbcLPDB;
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("landing-pagePU");
+//    EntityManagerFactory emf = Persistence.createEntityManagerFactory("landing-pagePU");
     public static final String EMAIL_REGEX =
             "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 //    private static Sender tlsSender = new Sender(Sender.TransportLayer.TLS, "rul@moneypoolator.com", "e5U86J45PR_");
 //    private static Sender sslSender = new Sender(Sender.TransportLayer.SSL, "keeper@moneypoolator.com", "intheairtonight");
-
-//    @EJB
-//    private EmailSessionBean emailBean;
-    protected void sendEmail(String goback, String email) {
-        String emailSubject = "This is Subject";
-        String emailText = "This is text!";
-        String emailFromAddress = "support@moneypoolator.com";
-        String emailFromPersonal = "Moneypoolator support team";
-        String attachFileName = getServletContext().getRealPath("/pdf/moneypoolator31.pdf");
-
-        if (goback != null) {
-
-            if (goback.contains("landing31") || goback.contains("index")) {
-                attachFileName = getServletContext().getRealPath("/pdf/moneypoolator31.pdf");
-            } else if (goback.contains("landing32")) {
-                attachFileName = getServletContext().getRealPath("/pdf/moneypoolator32.pdf");
-            }
-        }
-
-        //tlsSender.send(emailSubject, emailText, emailFromAddress, emailFromPersonal, email, attachFileName);
-        //sslSender.send(emailSubject, emailText, emailFromAddress, emailFromPersonal, email, attachFileName);
-    }
 
     /**
      * Validates email address agains email regular expression.
@@ -308,21 +286,21 @@ public class SubscriberServlet extends HttpServlet {
 
     }
 
-    private DataSource getJdbcLPDB() {
-        return jdbcLPDB;
-    }
+//    private DataSource getJdbcLPDB() {
+//        return jdbcLPDB;
+//    }
 
-    public void persist(Object object) {
-        EntityManager em = emf.createEntityManager();
-        try {
-            em.getTransaction().begin();
-            em.persist(object);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
-            em.getTransaction().rollback();
-        } finally {
-            em.close();
-        }
-    }
+//    public void persist(Object object) {
+//        EntityManager em = emf.createEntityManager();
+//        try {
+//            em.getTransaction().begin();
+//            em.persist(object);
+//            em.getTransaction().commit();
+//        } catch (Exception e) {
+//            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+//            em.getTransaction().rollback();
+//        } finally {
+//            em.close();
+//        }
+//    }
 }

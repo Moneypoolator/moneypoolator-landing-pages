@@ -24,7 +24,7 @@ public class AppContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         // create the thread pool
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(100, 200, 50000L,
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(100, 200, 20000L,
                 TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(100));
         sce.getServletContext().setAttribute("executor", executor);
     }

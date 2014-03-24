@@ -43,6 +43,13 @@ p.confidentiality {color: #7b716e; font-size: 0.8em; width: 290px;}
 input.text {color: #a7a1a0; width: 228px; border: solid 2px #7e7977; line-height: 56px; height: 56px; padding: 0 28px; font-size: 1.0em;}
 #container-header2 input.text {border: solid 2px #afe6d8;}
 input.submit {color: #000; font-weight: bold; text-transform: uppercase; border: none; line-height: 60px; height: 60px; padding: 0 22px; background: #f2d833; margin-left: 20px; cursor: pointer;}
+/*
+input.email {background: #fff; color: #231e22; border: solid 1px #969799; width: 540px; padding: 0 28px; font-size: 1.6em;}
+*/
+input.email {color: #a7a1a0; width: 228px; border: solid 2px #7e7977; line-height: 56px; height: 56px; padding: 0 28px; font-size: 1.0em;}
+input.error-email {background: #fff; color: #231e22; border: solid 1px #d25d79; width: 540px; padding: 0 28px; font-size: 1.6em;}
+p.email-error-message {color: #d25d79; font-size: 0.8em; width: 290px;}
+
 
 /*----------------------thesis-------------------------*/
 #container-thesis1, #container-thesis4 {background: #f2d833; color: #262424;}

@@ -43,10 +43,10 @@ public class AsyncEmailSenderServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        long startTime = System.currentTimeMillis();
-        System.out.println("AsyncLongRunningServlet Start::Name="
-                + Thread.currentThread().getName() + "::ID="
-                + Thread.currentThread().getId());
+//        long startTime = System.currentTimeMillis();
+//        System.out.println("AsyncLongRunningServlet Start::Name="
+//                + Thread.currentThread().getName() + "::ID="
+//                + Thread.currentThread().getId());
 
         request.setAttribute("org.apache.catalina.ASYNC_SUPPORTED", true);
 
@@ -103,16 +103,16 @@ public class AsyncEmailSenderServlet extends HttpServlet {
 
         AsyncContext asyncCtx = request.startAsync();
         asyncCtx.addListener(new AppAsyncListener());
-        asyncCtx.setTimeout(9000);
+        asyncCtx.setTimeout(0);
 
         ThreadPoolExecutor executor = (ThreadPoolExecutor) request.getServletContext().getAttribute("executor");
 
         executor.execute(new AsyncRequestProcessor(asyncCtx, tlsSender));
-        long endTime = System.currentTimeMillis();
-        System.out.println("AsyncLongRunningServlet End::Name="
-                + Thread.currentThread().getName() + "::ID="
-                + Thread.currentThread().getId() + "::Time Taken="
-                + (endTime - startTime) + " ms.");
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("AsyncLongRunningServlet End::Name="
+//                + Thread.currentThread().getName() + "::ID="
+//                + Thread.currentThread().getId() + "::Time Taken="
+//                + (endTime - startTime) + " ms.");
 
 
         //String goback = request.getParameter("goback");
