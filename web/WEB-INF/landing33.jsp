@@ -101,35 +101,35 @@
                     </tr>
                     <tr>
                         <td><h5>Moneypoolator</h5></td>
-                        <td><img src="_img/marker1.png" alt="да" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /> <img src="_img/marker2.png" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /> <img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
                     </tr>
                     <tr>
                         <td><h5>Фондовый рынок</h5></td>
-                        <td><img src="_img/marker2.png" alt="нет" /></td>
-                        <td><img src="_img/marker2.png" alt="нет" /></td>
-                        <td><img src="_img/marker2.png" alt="нет" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /> <img src="_img/marker2.png" alt="нет" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /></td>
+                        <td><img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /> <img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /></td>
                     </tr>
                     <tr>
                         <td><h5>Forex</h5></td>
-                        <td><img src="_img/marker2.png" alt="нет" /></td>
-                        <td><img src="_img/marker2.png" alt="нет" /></td>
-                        <td><img src="_img/marker2.png" alt="нет" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /></td>
+                        <td><img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /></td>
                     </tr>
                     <tr>
                         <td><h5>Срочный рынок</h5></td>
-                        <td><img src="_img/marker1.png" alt="да" /> <img src="_img/marker2.png" alt="нет" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /> <img src="_img/marker2.png" alt="нет" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /> <img src="_img/marker2.png" alt="нет" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /> <img src="_img/marker2.png" alt="нет" /></td>
-                        <td><img src="_img/marker1.png" alt="да" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /> <img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /> <img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /> <img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /> <img src="<c:url value="/_img3/marker2.png"/>" alt="нет" /></td>
+                        <td><img src="<c:url value="/_img3/marker1.png"/>" alt="да" /></td>
                     </tr>
                 </table>
                 <div class="clear"></div>

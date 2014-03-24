@@ -27,30 +27,19 @@ public class Sender {
         TLS,
         SSL
     };
+    private Properties transportProperties;
     private String username;
     private String password;
-    private Properties props;
+    private String emailSubject;
+    private String emailText;
+    private String emailFromAddress;
+    private String emailFromPersonal;
+    private String emailToAddress;
+    private String attachFilePath;
+    private String attachFilePsevdonim;
 
-    private void putTLSProperties() {
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-    }
-
-    private void putSSLProperties() {
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.socketFactory.port", "465");
-        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "465");
-    }
-
-    public Sender(TransportLayer transport, String username, String password) {
-        this.username = username;
-        this.password = password;
-
-        props = new Properties();
+    private void setupTransportProperties(TransportLayer transport) {
+        this.transportProperties = new Properties();
 
         switch (transport) {
             case TLS:
@@ -64,23 +53,79 @@ public class Sender {
         }
     }
 
-    public void config(
-            String subject,
-            String text,
-            String fromEmail, String fromPersonal,
-            String toEmail,
-            String attachFileName, String attachFilePsevdonim) {
-    }    
-    public void send() {
+    private void putTLSProperties() {
+        this.transportProperties.put("mail.smtp.auth", "true");
+        this.transportProperties.put("mail.smtp.starttls.enable", "true");
+        this.transportProperties.put("mail.smtp.host", "smtp.gmail.com");
+        this.transportProperties.put("mail.smtp.port", "587");
     }
 
-    public void send(
-            String subject,
-            String text,
-            String fromEmail, String fromPersonal,
-            String toEmail,
-            String attachFileName, String attachFilePsevdonim) {
-        Session session = Session.getInstance(props, new Authenticator() {
+    private void putSSLProperties() {
+        this.transportProperties.put("mail.smtp.host", "smtp.gmail.com");
+        this.transportProperties.put("mail.smtp.socketFactory.port", "465");
+        this.transportProperties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        this.transportProperties.put("mail.smtp.auth", "true");
+        this.transportProperties.put("mail.smtp.port", "465");
+    }
+
+    public Sender(TransportLayer transport, String username, String password) {
+        this.username = username;
+        this.password = password;
+        setupTransportProperties(transport);
+    }
+
+    public Sender(TransportLayer transport) {
+        setupTransportProperties(transport);
+    }
+
+    public Sender() {
+        setupTransportProperties(TransportLayer.TLS);
+    }
+
+    public void config(
+            TransportLayer transport,
+            String username, String password,
+            String emailSubject,
+            String emailText,
+            String emailFromAddress, String emailFromPersonal,
+            String emailToAddress,
+            String attachFilePath, String attachFilePsevdonim) {
+
+        setupTransportProperties(transport);
+        
+        configAuthentication(username, password);
+
+        configEmail(emailSubject, emailText,
+                emailFromAddress, emailFromPersonal,
+                emailToAddress,
+                attachFilePath, attachFilePsevdonim);
+    }
+
+    public void configAuthentication(
+            String username, String password) {
+
+        this.username = username;
+        this.password = password;
+    }
+
+    public void configEmail(
+            String emailSubject,
+            String emailText,
+            String emailFromAddress, String emailFromPersonal,
+            String emailToAddress,
+            String attachFilePath, String attachFilePsevdonim) {
+
+        this.emailSubject = emailSubject;
+        this.emailText = emailText;
+        this.emailFromAddress = emailFromAddress;
+        this.emailFromPersonal = emailFromPersonal;
+        this.emailToAddress = emailToAddress;
+        this.attachFilePath = attachFilePath;
+        this.attachFilePsevdonim = attachFilePsevdonim;
+    }
+
+    public void send() {
+        Session session = Session.getInstance(transportProperties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
@@ -90,15 +135,13 @@ public class Sender {
         try {
             MimeMessage message = new MimeMessage(session);
 
-            message.setFrom(new InternetAddress(fromEmail, fromPersonal));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+            message.setFrom(new InternetAddress(emailFromAddress, emailFromPersonal));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailToAddress));
 
-            message.setSubject(subject, "utf-8");
+            message.setSubject(emailSubject, "UTF-8");
 
-//            message.setText(text);
-            createFileEmail(message, text, attachFileName, attachFilePsevdonim);
+            createMultipartEmail(message, emailText, attachFilePath, attachFilePsevdonim);
 
-            //Отправляем сообщение
             Transport.send(message);
         } catch (MessagingException e) {
             throw new RuntimeException(e);
@@ -107,7 +150,22 @@ public class Sender {
         }
     }
 
-    public void createFileEmail(
+    public void send(
+            String emailSubject,
+            String emailText,
+            String emailFromAddress, String emailFromPersonal,
+            String emailToAddress,
+            String attachFilePath, String attachFilePsevdonim) {
+
+        configEmail(emailSubject, emailText,
+                emailFromAddress, emailFromPersonal,
+                emailToAddress,
+                attachFilePath, attachFilePsevdonim);
+        
+        send();
+    }
+
+    private void createMultipartEmail(
             MimeMessage message,
             String text,
             String attachFileName, String attachFilePsevdonim) throws MessagingException, UnsupportedEncodingException {

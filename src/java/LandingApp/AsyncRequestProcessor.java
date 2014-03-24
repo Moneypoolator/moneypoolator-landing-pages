@@ -32,13 +32,14 @@ public class AsyncRequestProcessor implements Runnable {
 
         emailSender.send();
 
-        try {
-            longProcessing(secs);
-            PrintWriter out = asyncContext.getResponse().getWriter();
-            out.write("Processing done for " + secs + " milliseconds!!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            longProcessing(secs);
+//            PrintWriter out = asyncContext.getResponse().getWriter();
+//            out.write("Processing done for " + secs + " milliseconds!!");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
         //complete the processing
         asyncContext.complete();
     }

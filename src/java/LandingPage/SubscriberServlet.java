@@ -232,10 +232,7 @@ public class SubscriberServlet extends HttpServlet {
 
         } else {
 
-            //request.
-            //response.
             String forward = "/AsyncEmailSenderServlet";
-//            String forward = response.encodeRedirectURL(contextPath + "/AsyncEmailSenderServlet");
             RequestDispatcher dispatcher = request.getRequestDispatcher(forward);
             dispatcher.forward(request, response);
         }

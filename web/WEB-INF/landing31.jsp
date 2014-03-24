@@ -37,16 +37,24 @@
         <h1>Moneypoolator &mdash; рынок прогнозов</h1>
         <div id="container-header2">
             <header>
-                <div id="logo"><a href="/"><img src="<c:url value="/_img3/logo2.png"/>" alt="Moneypoolator - рынок прогнозов" /></a></div>
+                <div id="logo"><a href="<c:url value="/index"/>"><img src="<c:url value="/_img3/logo2.png"/>" alt="Moneypoolator - рынок прогнозов" /></a></div>
                 <div id="header-right">
                     <h2>Единственный способ инвестировать, <br />не ломая голову!</h2>
                     <div class="information">
                         <p><strong>На рынке прогнозов Moneypoolator вы можете ставить не результаты конкретных событий.</strong></p>
                         <p>Инфляция и уровень рождаемости, отзывы банковских лиценций и принятие законопроектов &mdash; все это может стать прямым источником дохода.</p>
                     </div>
+
+                    <%--
+                    <jsp:include page="/WEB-INF/jspf/get-document-form.jspf" />
+            <c:import charEncoding="UTF-8" url="/WEB-INF/jspf/get-document-form.jspf" />
+                <%@include file="./jspf/get-document-form.jspf" %>
+                    --%>
+
                     <form novalidate action="subscribe" method="post">
                         <p><strong>Оставьте нам свой e-mail, чтобы узнать как это работает</strong></p>
                         <p><input type="hidden" name="goback" value="/landing31" /></p>
+
                         <p>
                             <c:choose>
                                 <c:when test="${!empty sessionScope.currentAdress}">
@@ -72,6 +80,7 @@
 
                         <p class="confidentiality">Мы не будем распростронять информацию о вашем электронном адресе.</p>
                     </form>
+
                 </div>
                 <div class="clear"></div>
             </header>
@@ -117,10 +126,41 @@
         </div>
         <div id="container-footer">
             <footer>
-                <form action="">
-                    <p><strong>Оставьте нам свой e-mail, чтобы мы могли <br />сообщить вам о запуске и подарить 5%</strong></p>
-                    <p><input class="text" type="text" value="Email адрес" /><input class="submit" type="submit" value="Сообщить о запуске" /></p>
+                <%--
+                <jsp:include page="/WEB-INF/jspf/get-announce-form.jspf" />
+                            <c:import charEncoding="UTF-8" url="/WEB-INF/jspf/get-announce-form.jspf" />
+                <%@include file="./jspf/get-announce-form.jspf" %>
+                --%>
+
+                <form novalidate action="subscribe" method="post">
+                    <p><strong>Оставьте нам свой e-mail, чтобы мы могли <br />сообщить вам о запуске и подарить $5</strong></p>
+                    <p><input type="hidden" name="get-announce-goback" value="/landing31" /></p>
+
+                    <p>
+                        <c:choose>
+                            <c:when test="${!empty sessionScope.currentAdress}">
+                                <input class="text" type="email" name="get-announce-email" value="<c:out value="${sessionScope.currentAdress}"/>" />
+                                <c:remove var="currentAdress" scope="session" />
+                            </c:when>
+                            <c:otherwise>
+                                <input class="text" type="email" name="get-announce-email" value="" placeholder="Email адрес" />
+                            </c:otherwise>
+                        </c:choose>
+                        <input class="submit" type="submit" name="get-announce-subscribe" value="Сообщить о запуске" />
+                    </p>
+
+                    <c:choose>
+                        <c:when test="${!empty sessionScope.mailErrorResponse}">
+                            <p class="email-error-message">${sessionScope.mailErrorResponse}</p>
+                            <c:remove var="mailErrorResponse" scope="session" />
+                        </c:when>
+                        <c:otherwise>
+                            <p style="display:none"></p>
+                        </c:otherwise>
+                    </c:choose>
+
                 </form>
+
                 <div class="clear"></div>
             </footer>
         </div>

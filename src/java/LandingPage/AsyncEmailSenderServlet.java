@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.concurrent.ThreadPoolExecutor;
 import javax.servlet.AsyncContext;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -49,16 +50,16 @@ public class AsyncEmailSenderServlet extends HttpServlet {
 
         request.setAttribute("org.apache.catalina.ASYNC_SUPPORTED", true);
 
-        String time = request.getParameter("time");
-        int secs = 1000;
-        try {
-            secs = Integer.valueOf(time);
-            // max 10 seconds
-            if (secs > 10000) {
-                secs = 10000;
-            }
-        } catch (NumberFormatException e) {
-        }
+//        String time = request.getParameter("time");
+//        int secs = 1000;
+//        try {
+//            secs = Integer.valueOf(time);
+//            // max 10 seconds
+//            if (secs > 10000) {
+//                secs = 10000;
+//            }
+//        } catch (NumberFormatException e) {
+//        }
 
 
         String email = request.getParameter("email");
@@ -88,10 +89,13 @@ public class AsyncEmailSenderServlet extends HttpServlet {
             } else if (goback.contains("landing32")) {
                 attachFileName = getServletContext().getRealPath("/pdf/moneypoolator32.pdf");
                 attachFilePsevdonim = "moneypoolator32.pdf";
+            } else if (goback.contains("landing33")) {
+                attachFileName = getServletContext().getRealPath("/pdf/moneypoolator33.pdf");
+                attachFilePsevdonim = "moneypoolator33.pdf";
             }
         }
 
-        tlsSender.config(emailSubject, emailText, emailFromAddress, emailFromPersonal, email, attachFileName, attachFilePsevdonim);
+        tlsSender.configEmail(emailSubject, emailText, emailFromAddress, emailFromPersonal, email, attachFileName, attachFilePsevdonim);
         //tlsSender.send(emailSubject, emailText, emailFromAddress, emailFromPersonal, email, attachFileName, attachFilePsevdonim);
         //sslSender.send(emailSubject, emailText, emailFromAddress, emailFromPersonal, email, attachFileName);
 
@@ -101,8 +105,7 @@ public class AsyncEmailSenderServlet extends HttpServlet {
         asyncCtx.addListener(new AppAsyncListener());
         asyncCtx.setTimeout(9000);
 
-        ThreadPoolExecutor executor = (ThreadPoolExecutor) request
-                .getServletContext().getAttribute("executor");
+        ThreadPoolExecutor executor = (ThreadPoolExecutor) request.getServletContext().getAttribute("executor");
 
         executor.execute(new AsyncRequestProcessor(asyncCtx, tlsSender));
         long endTime = System.currentTimeMillis();
@@ -116,9 +119,16 @@ public class AsyncEmailSenderServlet extends HttpServlet {
 //        if (goback == null) {
 //            goback = "/index";
 //        }
-        
+//        request.setAttribute("subscriptionSource", 435);
+
         String contextPath = request.getContextPath();
         response.sendRedirect(response.encodeRedirectURL(contextPath + "/thanks"));
+
+//        String forward = "/thanks";
+//        RequestDispatcher dispatcher = request.getRequestDispatcher(forward);
+//        dispatcher.forward(request, response);
+
+
 
         //        response.sendRedirect(response.encodeRedirectURL(contextPath + goback));
 
