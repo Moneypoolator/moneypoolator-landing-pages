@@ -61,8 +61,26 @@ public class AsyncEmailSenderServlet extends HttpServlet {
 //        } catch (NumberFormatException e) {
 //        }
 
+        String announceEmail = request.getParameter("announce-email");
+        String documentEmail = request.getParameter("document-email");
+        // for old pages 
+        String oldEmail = request.getParameter("email");
 
-        String email = request.getParameter("email");
+        String email = null;
+        boolean there_is_document_request = true;
+
+        if (announceEmail != null) {
+            email = announceEmail;
+            there_is_document_request = false;
+        } else if (documentEmail != null) {
+            email = documentEmail;
+            there_is_document_request = true;
+        } else if (oldEmail != null) {
+            email = oldEmail;
+            there_is_document_request = true;
+        }
+
+//        String email = request.getParameter("email");
 
         String emailSubject = "Документ про рынок прогнозов";
         String emailText;

@@ -68,7 +68,24 @@ public class SubscriberServlet extends HttpServlet {
         String contextPath = request.getContextPath();
         HttpSession session = request.getSession();
 
-        String email = request.getParameter("email");
+        String announceEmail = request.getParameter("announce-email");
+        String documentEmail = request.getParameter("document-email");
+        // for old pages 
+        String oldEmail = request.getParameter("email");
+
+        String email = null;
+        boolean there_is_document_request = true;
+
+        if (announceEmail != null) {
+            email = announceEmail;
+            there_is_document_request = false;
+        } else if (documentEmail != null) {
+            email = documentEmail;
+            there_is_document_request = true;
+        } else if (oldEmail != null) {
+            email = oldEmail;
+            there_is_document_request = true;
+        }
 
         boolean email_is_valid = false;
         boolean email_saving_complete = false;
@@ -80,7 +97,7 @@ public class SubscriberServlet extends HttpServlet {
                 email_error_message = "Это обязательное поле";
             } else if (!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
                 email_is_valid = false;
-                session.setAttribute("currentAdress", email);
+//                session.setAttribute("currentAdress", email);
                 email_error_message = "Введите адрес электронной почты";
             } else {
                 try {
@@ -89,7 +106,7 @@ public class SubscriberServlet extends HttpServlet {
                     email_is_valid = true;
                 } catch (javax.mail.internet.AddressException ae) {
                     email_is_valid = false;
-                    session.setAttribute("currentAdress", email);
+//                    session.setAttribute("currentAdress", email);
                     email_error_message = "Проверьте адрес электронной почты";
                 }
             }
@@ -118,7 +135,7 @@ public class SubscriberServlet extends HttpServlet {
 
                 rs = stmt.executeQuery(selectEmailSQL);
                 if (rs.first()) {
-                    session.setAttribute("currentAdress", email);
+//                    session.setAttribute("currentAdress", email);
                     email_saving_complete = false;
                     email_error_message = "Подписка на указанный адрес уже оформлена.";
                 } else {
@@ -157,12 +174,12 @@ public class SubscriberServlet extends HttpServlet {
 //                        tlsSender.send(emailSubject, emailText, emailFromAddress, emailFromPersonal, email, attachFileName, attachFilePsevdonim);
 //                        //sslSender.send(emailSubject, emailText, emailFromAddress, emailFromPersonal, email, attachFileName);
 
-                        request.setAttribute("subscriberEmail", email);
+//                        request.setAttribute("subscriberEmail", email);
                         email_saving_complete = true;
                         email_error_message = "Поздравляем, ваш адрес зарегистрирован! Приглашение будет отправлено на указанный адрес.";
                     } else {
-                        
-                        session.setAttribute("currentAdress", email);
+
+//                        session.setAttribute("currentAdress", email);
                         email_saving_complete = false;
                         email_error_message = "Не удалось сохранить указанный адрес. Повторите попытку позже.";
                     }
@@ -198,15 +215,35 @@ public class SubscriberServlet extends HttpServlet {
 //            dispatcher.forward(request, response);
         } // if
 
-        if (!email_is_valid || !email_saving_complete) {
-
+        String anchor = "#document-request";
+        if (there_is_document_request) {
+            anchor = "#document-request";
+            session.setAttribute("documentAddress", email);
+            session.setAttribute("documentAddressError", email_error_message);
+            // for old pages
+            session.setAttribute("currentAdress", email);
             session.setAttribute("mailErrorResponse", email_error_message);
+        } else {
+            anchor = "#announce-request";
+            session.setAttribute("announceAddress", email);
+            session.setAttribute("announceAddressError", email_error_message);
+        }
+
+        if (!email_is_valid || !email_saving_complete) {
 
             String goback = request.getParameter("goback");
             if (goback == null) {
                 goback = "/index";
             }
+            goback += anchor;
+
+//            response.setHeader("Pragma", "no-cache"); //HTTP/1.0 Proxy Servers
+//            response.setHeader("Cache-Control", "no-cache"); //HTTP/1.1 Proxy Servers
+//            response.setDateHeader("Expires", 0); // for Browsers  
             response.sendRedirect(response.encodeRedirectURL(contextPath + goback));
+            
+//            RequestDispatcher dispatcher = request.getRequestDispatcher(contextPath + goback);
+//            dispatcher.forward(request, response);
 
         } else {
 
@@ -285,11 +322,9 @@ public class SubscriberServlet extends HttpServlet {
         }
 
     }
-
 //    private DataSource getJdbcLPDB() {
 //        return jdbcLPDB;
 //    }
-
 //    public void persist(Object object) {
 //        EntityManager em = emf.createEntityManager();
 //        try {
