@@ -15,8 +15,8 @@
         <link href="<c:url value="/_css3/style.css"/>" rel="stylesheet" type="text/css" />
         <link rel="icon" href="<c:url value="/favicon.ico"/>" type="image/x-icon"> 
         <link rel="shortcut icon" href="<c:url value="/favicon.ico"/>" type="image/x-icon">
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
+        <meta name="keywords" content="moneypoolator, манипулятор, рынок прогнозов, рынок предсказаний, политические прогнозы, рынки предсказаний, финансовые фьючерсы,  биржа прогнозов, биржа предсказаний, идейные фьючерсы, мудрость толпы,  информационные рынки, политические ставки, коллективный разум, фьючерсы на события, прогноз цен, информационная функция рынка, ставки на события, прогноз биржи ставок, биржа ставок, экономический прогноз, биржа, коллективный интеллект, прогноз стоимости, рынок ставок, фьючерсы на события" />
+        <meta name="description" content="Рынок прогнозов Moneypoolator - заработайте на своем видении будущего. Большое количество событий и простой механизм прогноза." />
         <!--[if IE]>
                 <script>
                     document.createElement('header');
