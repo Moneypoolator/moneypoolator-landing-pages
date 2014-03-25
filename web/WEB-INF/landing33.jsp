@@ -1,7 +1,7 @@
 <%-- 
-    Document   : landing33
-    Created on : 21.03.2014, 16:14:17
-    Author     : 1
+    Document   : The landing page for a wide audience (code 33).
+    Created on : 17.03.2014, 17:51:01
+    Author     : Alexey Narolin <alexey.n.narolin@gmail.com>
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -35,16 +35,37 @@
         <h1>Moneypoolator &mdash; рынок прогнозов</h1>
         <div id="container-header">
             <header>
-                <div id="logo"><a href="/"><img src="<c:url value="/_img3/logo.png"/>" alt="Moneypoolator - рынок прогнозов" /></a></div>
+                <div id="logo"><a href="<c:url value="/index"/>"><img src="<c:url value="/_img3/logo.png"/>" alt="Moneypoolator - рынок прогнозов" /></a></div>
                 <div id="header-right">
                     <h2>Единственный способ инвестировать <br />в актуальные события!</h2>
                     <div class="information">
                         <p><strong>Прямые ставки на события на рынке прогнозов Moneypoolator.</strong></p>
-                        <p>Цены биржевых активов и экономическая статистика, политика и новости - все это может стать прямым источником дохода.</p>
+                        <p>Цены биржевых активов и экономическая статистика, политика и новости &mdash; все это может стать прямым источником дохода.</p>
                     </div>
-                    <form action="">
+                    <form id="document-request" novalidate action="subscribe" method="post">
                         <p><strong>Оставьте нам свой e-mail, чтобы узнать как это работает</strong></p>
-                        <p><input class="text" type="text" value="Email адрес" /><input class="submit" type="submit" value="Получить документ" /></p>
+                        <p><input type="hidden" name="goback" value="/landing33" /></p>
+                        <p>
+                            <c:choose>
+                                <c:when test="${!empty sessionScope.documentAddress}">
+                                    <input class="text" type="email" name="document-email" value="<c:out value="${sessionScope.documentAddress}"/>" />
+                                    <c:remove var="documentAddress" scope="session" />
+                                </c:when>
+                                <c:otherwise>
+                                    <input class="text" type="email" name="document-email" value="" placeholder="Email адрес" />
+                                </c:otherwise>
+                            </c:choose>
+                            <input class="submit" type="submit" name="subscribe" value="Получить документ" />
+                        </p>
+                        <c:choose>
+                            <c:when test="${!empty sessionScope.documentAddressError}">
+                                <p class="email-error-message">${sessionScope.documentAddressError}</p>
+                                <c:remove var="documentAddressError" scope="session" />
+                            </c:when>
+                            <c:otherwise>
+                                <p style="display:none"></p>
+                            </c:otherwise>
+                        </c:choose>
                         <p class="confidentiality">Мы не будем распростронять информацию о вашем электронном адресе.</p>
                     </form>
                 </div>
@@ -142,9 +163,30 @@
         </div>
         <div id="container-footer">
             <footer>
-                <form action="">
+                <form id="document-request" novalidate action="subscribe" method="post">
                     <p><strong>Оставьте нам свой e-mail, чтобы мы могли <br />сообщить вам о запуске</strong></p>
-                    <p><input class="text" type="text" value="Email адрес" /><input class="submit" type="submit" value="Сообщить о запуске" /></p>
+                    <p><input type="hidden" name="goback" value="/landing33" /></p>
+                    <p>
+                        <c:choose>
+                            <c:when test="${!empty sessionScope.announceAddress}">
+                                <input class="text" type="email" name="announce-email" value="<c:out value="${sessionScope.announceAddress}"/>" />
+                                <c:remove var="announceAddress" scope="session" />
+                            </c:when>
+                            <c:otherwise>
+                                <input class="text" type="email" name="announce-email" value="" placeholder="Email адрес" />
+                            </c:otherwise>
+                        </c:choose>
+                        <input class="submit" type="submit" name="subscribe" value="Сообщить о запуске" />
+                    </p>
+                    <c:choose>
+                        <c:when test="${!empty sessionScope.announceAddressError}">
+                            <p class="email-error-message">${sessionScope.announceAddressError}</p>
+                            <c:remove var="announceAddressError" scope="session" />
+                        </c:when>
+                        <c:otherwise>
+                            <p style="display:none"></p>
+                        </c:otherwise>
+                    </c:choose>
                 </form>
                 <div class="clear"></div>
             </footer>

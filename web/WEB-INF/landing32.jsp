@@ -1,7 +1,7 @@
 <%-- 
-    Document   : landing32
-    Created on : 21.03.2014, 16:06:57
-    Author     : 1
+    Document   : The landing page for a wide audience (code 32).
+    Created on : 17.03.2014, 17:51:01
+    Author     : Alexey Narolin <alexey.n.narolin@gmail.com>
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -40,11 +40,32 @@
                     <h2>Позвольте рассказать вам о рынке прогнозов Moneypoolator</h2>
                     <div class="information">
                         <p><strong>Это биржа, где Вы можете зарабатывать на прогнозах экономических и политических событиях.</strong></p>
-                        <p>Экономические кризисы и геополитические тенденции - все это может стать прямым источником дохода.</p>
+                        <p>Экономические кризисы и геополитические тенденции &mdash; все это может стать прямым источником дохода.</p>
                     </div>
-                    <form action="">
+                    <form id="document-request" novalidate action="subscribe" method="post">
                         <p><strong>Оставьте нам свой e-mail, чтобы узнать как это работает</strong></p>
-                        <p><input class="text" type="text" value="Email адрес" /><input class="submit" type="submit" value="Получить документ" /></p>
+                        <p><input type="hidden" name="goback" value="/landing32" /></p>
+                        <p>
+                            <c:choose>
+                                <c:when test="${!empty sessionScope.documentAddress}">
+                                    <input class="text" type="email" name="document-email" value="<c:out value="${sessionScope.documentAddress}"/>" />
+                                    <c:remove var="documentAddress" scope="session" />
+                                </c:when>
+                                <c:otherwise>
+                                    <input class="text" type="email" name="document-email" value="" placeholder="Email адрес" />
+                                </c:otherwise>
+                            </c:choose>
+                            <input class="submit" type="submit" name="subscribe" value="Получить документ" />
+                        </p>
+                        <c:choose>
+                            <c:when test="${!empty sessionScope.documentAddressError}">
+                                <p class="email-error-message">${sessionScope.documentAddressError}</p>
+                                <c:remove var="documentAddressError" scope="session" />
+                            </c:when>
+                            <c:otherwise>
+                                <p style="display:none"></p>
+                            </c:otherwise>
+                        </c:choose>
                         <p class="confidentiality">Мы не будем распростронять информацию о вашем электронном адресе.</p>
                     </form>
                 </div>
@@ -92,9 +113,30 @@
         </div>
         <div id="container-footer">
             <footer>
-                <form action="">
+                <form id="announce-request" novalidate action="subscribe" method="post">
                     <p><strong>Оставьте нам свой e-mail, чтобы мы могли <br />сообщить вам о запуске</strong></p>
-                    <p><input class="text" type="text" value="Email адрес" /><input class="submit" type="submit" value="Сообщить о запуске" /></p>
+                    <p><input type="hidden" name="goback" value="/landing32" /></p>
+                    <p>
+                        <c:choose>
+                            <c:when test="${!empty sessionScope.announceAddress}">
+                                <input class="text" type="email" name="announce-email" value="<c:out value="${sessionScope.announceAddress}"/>" />
+                                <c:remove var="announceAddress" scope="session" />
+                            </c:when>
+                            <c:otherwise>
+                                <input class="text" type="email" name="announce-email" value="" placeholder="Email адрес" />
+                            </c:otherwise>
+                        </c:choose>
+                        <input class="submit" type="submit" name="subscribe" value="Сообщить о запуске" />
+                    </p>
+                    <c:choose>
+                        <c:when test="${!empty sessionScope.announceAddressError}">
+                            <p class="email-error-message">${sessionScope.announceAddressError}</p>
+                            <c:remove var="announceAddressError" scope="session" />
+                        </c:when>
+                        <c:otherwise>
+                            <p style="display:none"></p>
+                        </c:otherwise>
+                    </c:choose>
                 </form>
                 <div class="clear"></div>
             </footer>
