@@ -148,7 +148,7 @@
         </div>
         <!-- Yandex.Metrika counter -->
         <script type="text/javascript">
-            <c:import url="/WEB-INF/javascript/yandex-metrica-counter.js" />
+            <c:import url="/WEB-INF/javascript/yandex-metrika-counter.js" />
         </script>
         <noscript><div><img src="//mc.yandex.ru/watch/24442862" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
         <script type="text/javascript" defer="defer">

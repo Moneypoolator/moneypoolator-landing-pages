@@ -103,13 +103,13 @@ public class AsyncEmailSenderServlet extends HttpServlet {
         if (goback != null) {
             if (goback.contains("landing31") || goback.contains("index")) {
                 attachFileName = getServletContext().getRealPath("/pdf/moneypoolator31.pdf");
-                attachFilePsevdonim = "moneypoolator31.pdf";
+                attachFilePsevdonim = "Moneypoolator prediction market (31).pdf";
             } else if (goback.contains("landing32")) {
                 attachFileName = getServletContext().getRealPath("/pdf/moneypoolator32.pdf");
-                attachFilePsevdonim = "moneypoolator32.pdf";
+                attachFilePsevdonim = "Moneypoolator prediction market (32).pdf";
             } else if (goback.contains("landing33")) {
                 attachFileName = getServletContext().getRealPath("/pdf/moneypoolator33.pdf");
-                attachFilePsevdonim = "moneypoolator33.pdf";
+                attachFilePsevdonim = "Moneypoolator prediction market (33).pdf";
             }
         }
 
