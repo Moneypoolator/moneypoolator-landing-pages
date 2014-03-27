@@ -67,7 +67,21 @@
                 <section class="column-right">
                     <div class="social-icons">
                         <script type="text/javascript" src="http://yandex.st/share/share.js" charset="utf-8"></script>
-                        <div class="yashare-auto-init" data-yashareLink="http://moneypoolator.ru/landing31" data-yashareImage="http://moneypoolator.ru/_img3/logo2.png" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTitle="Moneypoolator - рынок прогнозов" data-yashareDescription="Рынок прогнозов Moneypoolator - заработайте на своем видении будущего. Большое количество событий и простой механизм прогноза."></div> 
+                        <!-- <c:out value="${sessionScope.subscriptionSource}"/> -->
+                        <c:choose>
+                            <c:when test="${sessionScope.subscriptionSource eq '/landing31'}">
+                                <div class="yashare-auto-init" data-yashareLink="http://moneypoolator.ru<c:out value="${sessionScope.subscriptionSource}"/>" data-yashareImage="http://moneypoolator.ru/_img3/logo2.png" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTitle="Moneypoolator - рынок прогнозов" data-yashareDescription="В 94 случаях из 100 коллективная оценка оказывается точней индивидуальной. Узнайте, как правильно прогнозировать будущие события и зарабатывать на этом, на рынке прогнозов Moneypoolator."></div> 
+                            </c:when>
+                            <c:when test="${sessionScope.subscriptionSource eq '/landing32'}">
+                                <div class="yashare-auto-init" data-yashareLink="http://moneypoolator.ru<c:out value="${sessionScope.subscriptionSource}"/>" data-yashareImage="http://moneypoolator.ru/_img3/logo2.png" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTitle="Moneypoolator - рынок прогнозов" data-yashareDescription="Увеличение вероятности войны на 10% прибавляет 1 доллар к цене нефти. Узнайте, как сохранять и зарабатывать деньги в неустойчивом мире."></div> 
+                            </c:when>
+                            <c:when test="${sessionScope.subscriptionSource eq '/landing33'}">
+                                <div class="yashare-auto-init" data-yashareLink="http://moneypoolator.ru<c:out value="${sessionScope.subscriptionSource}"/>" data-yashareImage="http://moneypoolator.ru/_img3/logo2.png" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTitle="Moneypoolator - рынок прогнозов" data-yashareDescription="Фондовые индексы теряют 1,5% на каждые 10% увеличения вероятности войны. Рынок прогнозов Moneypoolator поможет сохранять и зарабатывать деньги в неустойчивом мире."></div> 
+                            </c:when>
+                            <c:otherwise>
+                                <div class="yashare-auto-init" data-yashareLink="http://moneypoolator.ru/landing31" data-yashareImage="http://moneypoolator.ru/_img3/logo2.png" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTitle="Moneypoolator - рынок прогнозов" data-yashareDescription="В 94 случаях из 100 коллективная оценка оказывается точней индивидуальной. Узнайте, как правильно прогнозировать будущие события и зарабатывать на этом, на рынке прогнозов Moneypoolator."></div> 
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                     <p>Мы хотим создать большое и увлеченное сообщество на основе сайта Moneypoolator и просим в этом Вашей помощи. Надеемся, Вы оценили идею нашего сервиса и его преимущества для себя.</p>
                     <p>Мы уверенны, что среди ваших друзей, родственников и знакомых может найтись несколько людей, которым было бы интересно попробовать себя в увлекательном процессе прогнозирования событий будущего и заработать на этом!</p>

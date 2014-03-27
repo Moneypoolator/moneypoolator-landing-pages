@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -138,7 +139,8 @@ public class AsyncEmailSenderServlet extends HttpServlet {
 //            goback = "/index";
 //        }
 //        request.setAttribute("subscriptionSource", 435);
-
+        HttpSession session = request.getSession();
+        session.setAttribute("subscriptionSource", goback);
         String contextPath = request.getContextPath();
         response.sendRedirect(response.encodeRedirectURL(contextPath + "/thanks"));
 
