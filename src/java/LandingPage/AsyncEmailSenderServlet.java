@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AsyncEmailSenderServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private static Sender tlsSender = new Sender(Sender.TransportLayer.TLS, "rul@moneypoolator.com", "e5U86J45PR_");
+    private static Sender tlsSender = new Sender(Sender.TransportLayer.TLS, "keeper@moneypoolator.com", "intheairtonight");//"rul@moneypoolator.com", "e5U86J45PR_");
     private static Sender sslSender = new Sender(Sender.TransportLayer.SSL, "keeper@moneypoolator.com", "intheairtonight");
 
     /**

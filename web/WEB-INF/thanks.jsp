@@ -67,7 +67,7 @@
                 <section class="column-right">
                     <div class="social-icons">
                         <script type="text/javascript" src="http://yandex.st/share/share.js" charset="utf-8"></script>
-                        <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir"></div> 
+                        <div class="yashare-auto-init" data-yashareLink="http://moneypoolator.ru/landing31" data-yashareImage="http://moneypoolator.ru/_img3/logo2.png" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir" data-yashareTitle="Moneypoolator - рынок прогнозов" data-yashareDescription="Рынок прогнозов Moneypoolator - заработайте на своем видении будущего. Большое количество событий и простой механизм прогноза."></div> 
                     </div>
                     <p>Мы хотим создать большое и увлеченное сообщество на основе сайта Moneypoolator и просим в этом Вашей помощи. Надеемся, Вы оценили идею нашего сервиса и его преимущества для себя.</p>
                     <p>Мы уверенны, что среди ваших друзей, родственников и знакомых может найтись несколько людей, которым было бы интересно попробовать себя в увлекательном процессе прогнозирования событий будущего и заработать на этом!</p>
