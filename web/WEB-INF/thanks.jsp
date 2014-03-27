@@ -17,6 +17,9 @@
         <link rel="shortcut icon" href="<c:url value="/favicon.ico"/>" type="image/x-icon">
         <meta name="keywords" content="moneypoolator, манипулятор, рынок прогнозов, рынок предсказаний, политические прогнозы, рынки предсказаний, финансовые фьючерсы,  биржа прогнозов, биржа предсказаний, идейные фьючерсы, мудрость толпы,  информационные рынки, политические ставки, коллективный разум, фьючерсы на события, прогноз цен, информационная функция рынка, ставки на события, прогноз биржи ставок, биржа ставок, экономический прогноз, биржа, коллективный интеллект, прогноз стоимости, рынок ставок, фьючерсы на события" />
         <meta name="description" content="Рынок прогнозов Moneypoolator - заработайте на своем видении будущего. Большое количество событий и простой механизм прогноза." />
+        <script type="text/javascript">
+            <c:import url="/WEB-INF/javascript/google-analytics-counter.js" />
+        </script>
         <!--[if IE]>
                 <script>
                     document.createElement('header');
@@ -77,5 +80,11 @@
                 <h6>Спасибо за вашу помощь!</h6>
             </article>	
         </div>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            <c:import url="/WEB-INF/javascript/yandex-metrica-counter.js" />
+        </script>
+        <noscript><div><img src="//mc.yandex.ru/watch/24442862" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
     </body>
 </html>

@@ -17,6 +17,9 @@
         <link rel="shortcut icon" href="<c:url value="/favicon.ico"/>" type="image/x-icon">
         <meta name="keywords" content="moneypoolator, манипулятор, рынок прогнозов, рынок предсказаний, политические прогнозы, рынки предсказаний, финансовые фьючерсы,  биржа прогнозов, биржа предсказаний, идейные фьючерсы, мудрость толпы,  информационные рынки, политические ставки, коллективный разум, фьючерсы на события, прогноз цен, информационная функция рынка, ставки на события, прогноз биржи ставок, биржа ставок, экономический прогноз, биржа, коллективный интеллект, прогноз стоимости, рынок ставок, фьючерсы на события" />
         <meta name="description" content="Рынок прогнозов Moneypoolator - заработайте на своем видении будущего. Большое количество событий и простой механизм прогноза." />
+        <script type="text/javascript">
+            <c:import url="/WEB-INF/javascript/google-analytics-counter.js" />
+        </script>
         <!--[if IE]>
                 <script>
                     document.createElement('header');
@@ -42,7 +45,7 @@
                         <p><strong>Прямые ставки на события на рынке прогнозов Moneypoolator.</strong></p>
                         <p>Цены биржевых активов и экономическая статистика, политика и новости &mdash; все это может стать прямым источником дохода.</p>
                     </div>
-                    <form id="document-request" novalidate action="subscribe" method="post">
+                    <form id="document-request" novalidate action="subscribe" method="post" onsubmit="_gaq.push(['_trackEvent', 'getdocument33', 'clicked']);yaCounter24442862.reachGoal('GETDOCUMENT33'); return true;">
                         <p><strong>Оставьте нам свой e-mail, чтобы узнать как это работает</strong></p>
                         <p><input type="hidden" name="goback" value="/landing33" /></p>
                         <p>
@@ -163,7 +166,7 @@
         </div>
         <div id="container-footer">
             <footer>
-                <form id="document-request" novalidate action="subscribe" method="post">
+                <form id="document-request" novalidate action="subscribe" method="post" onsubmit="_gaq.push(['_trackEvent', 'getannounce33', 'clicked']);yaCounter24442862.reachGoal('GETANNOUNCE33'); return true;">
                     <p><strong>Оставьте нам свой e-mail, чтобы мы могли <br />сообщить вам о запуске</strong></p>
                     <p><input type="hidden" name="goback" value="/landing33" /></p>
                     <p>
@@ -191,5 +194,15 @@
                 <div class="clear"></div>
             </footer>
         </div>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            <c:import url="/WEB-INF/javascript/yandex-metrica-counter.js" />
+        </script>
+        <noscript><div><img src="//mc.yandex.ru/watch/24442862" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <script type="text/javascript" defer="defer">
+            yaCounter24442862.reachGoal('GETDOCUMET33');
+            yaCounter24442862.reachGoal('GETANNOUNCE33');
+        </script>
+        <!-- /Yandex.Metrika counter -->
     </body>
 </html>
