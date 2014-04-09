@@ -40,11 +40,11 @@
         <h1>Moneypoolator &mdash; Глобальный рынок прогнозов</h1>
         <div id="container-header2">
             <header>
-                <div id="logo"><a href="<c:url value="/index"/>"><img src="<c:url value="/_img3/logo2.png"/>" alt="Moneypoolator - рынок прогнозов" /></a></div>
+                <div id="logo"><a href="<c:url value="/landing31"/>"><img src="<c:url value="/_img3/logo2.png"/>" alt="Moneypoolator - рынок прогнозов" /></a></div>
                 <div id="header-right">
                     <h2>Единственный способ инвестировать, <br />не ломая голову!</h2>
                     <div class="information">
-                        <p><strong>На рынке прогнозов Moneypoolator вы можете ставить не результаты конкретных событий.</strong></p>
+                        <p><strong>На рынке прогнозов Moneypoolator вы можете ставить на результаты конкретных событий.</strong></p>
                         <p>Инфляция и уровень рождаемости, отзывы банковских лиценций и принятие законопроектов &mdash; все это может стать прямым источником дохода.</p>
                     </div>
                     <form id="document-request" novalidate action="subscribe" method="post" onsubmit="_gaq.push(['_trackEvent', 'getdocumet31', 'clicked']);yaCounter24442862.reachGoal('GETDOCUMENT31'); return true;">
@@ -71,7 +71,7 @@
                                 <p style="display:none"></p>
                             </c:otherwise>
                         </c:choose>
-                        <p class="confidentiality">Мы не будем распростронять информацию о вашем электронном адресе.</p>
+                        <p class="confidentiality">Мы не будем распространять информацию о вашем электронном адресе.</p>
                     </form>
                 </div>
                 <div class="clear"></div>

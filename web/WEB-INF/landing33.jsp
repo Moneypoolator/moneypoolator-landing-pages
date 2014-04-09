@@ -38,7 +38,7 @@
         <h1>Moneypoolator &mdash; рынок прогнозов</h1>
         <div id="container-header">
             <header>
-                <div id="logo"><a href="<c:url value="/index"/>"><img src="<c:url value="/_img3/logo.png"/>" alt="Moneypoolator - рынок прогнозов" /></a></div>
+                <div id="logo"><a href="<c:url value="/landing33"/>"><img src="<c:url value="/_img3/logo.png"/>" alt="Moneypoolator - рынок прогнозов" /></a></div>
                 <div id="header-right">
                     <h2>Единственный способ инвестировать <br />в актуальные события!</h2>
                     <div class="information">
@@ -69,7 +69,7 @@
                                 <p style="display:none"></p>
                             </c:otherwise>
                         </c:choose>
-                        <p class="confidentiality">Мы не будем распростронять информацию о вашем электронном адресе.</p>
+                        <p class="confidentiality">Мы не будем распространять информацию о вашем электронном адресе.</p>
                     </form>
                 </div>
                 <div class="clear"></div>

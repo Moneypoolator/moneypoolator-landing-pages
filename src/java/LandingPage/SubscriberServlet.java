@@ -188,7 +188,9 @@ public class SubscriberServlet extends HttpServlet {
             } catch (Exception e) {
 
                 //out.println("Login Failed! Database error! Invalid user login or password!<br/>");
-                throw new ServletException(e.getMessage());
+//                throw new ServletException(e.getMessage());
+                email_saving_complete = false;
+                email_error_message = "Не удалось сохранить указанный адрес. Повторите попытку позже.";
 
             } finally {
                 try {
@@ -241,7 +243,7 @@ public class SubscriberServlet extends HttpServlet {
 //            response.setHeader("Cache-Control", "no-cache"); //HTTP/1.1 Proxy Servers
 //            response.setDateHeader("Expires", 0); // for Browsers  
             response.sendRedirect(response.encodeRedirectURL(contextPath + goback));
-            
+
 //            RequestDispatcher dispatcher = request.getRequestDispatcher(contextPath + goback);
 //            dispatcher.forward(request, response);
 
