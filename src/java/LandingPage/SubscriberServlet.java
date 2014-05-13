@@ -119,6 +119,9 @@ public class SubscriberServlet extends HttpServlet {
 //
 //            persist(man);
 
+//            Context env = null;
+//            DataSource ds = null;
+            
             Connection conn = null;
             Statement stmt = null;
             ResultSet rs;
@@ -129,6 +132,9 @@ public class SubscriberServlet extends HttpServlet {
                         + email + "', NOW(), '"
                         + request.getRemoteAddr() + "', 1);";
                 String selectEmailSQL = "SELECT id FROM subscribers WHERE email = '" + email + "';";
+
+//                env = new InitialContext();
+//                ds = (DataSource) env.lookup("jdbc/LPDB");
 
                 conn = jdbcLPDB.getConnection();
                 stmt = conn.createStatement();
@@ -194,6 +200,9 @@ public class SubscriberServlet extends HttpServlet {
 
             } finally {
                 try {
+//                    if (env != null) {
+//                        env.close();
+//                    }
                     if (stmt != null) {
                         stmt.close();
                     }
@@ -201,6 +210,8 @@ public class SubscriberServlet extends HttpServlet {
                         conn.close();
                     }
                 } catch (SQLException sqle) {
+//                } catch (NamingException ex) {
+                    //Logger.getLogger(SubscriberServlet.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } // try            
 

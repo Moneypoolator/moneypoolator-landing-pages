@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiJARLocking="true" path="/landing-page">
-  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/LPDB" password="borneo" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/landing_page" username="root"/>
+  <Resource 
+      auth="Container" 
+      driverClassName="com.mysql.jdbc.Driver" 
+      removeAbandonedTimeout="60"
+      removeAbandoned="true"
+      testWhileIdle="true"
+      timeBetweenEvictionRunsMillis="300000"
+      maxActive="20" maxIdle="10" maxWait="-1" 
+      name="jdbc/LPDB" 
+      password="borneo" 
+      type="javax.sql.DataSource" 
+      url="jdbc:mysql://localhost:3306/landing_page" 
+      username="root"/>
   <!--
+        Production environment:
+          initialSize="34"
+	  maxActive="377"
+	  maxIdle="233"
+	  minIdle="89"
+	  timeBetweenEvictionRunsMillis="34000"
+	  minEvictableIdleTimeMillis="55000"
+	  validationQuery="SELECT 1"
+	  validationInterval="34"
+	  testOnBorrow="true"
+	  removeAbandoned="true"
+	  removeAbandonedTimeout="55"
+            
 factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
 <Resurse 
 name="jdbc/sklad"
